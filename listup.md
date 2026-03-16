@@ -1,6 +1,7 @@
 # SYSTEMS VISION NOTES LISTUP
 
 ## 1️⃣ C++ Core
+
 C++ language fundamentals
 
 - [ ] value category (lvalue / rvalue)
@@ -41,6 +42,7 @@ C++ language fundamentals
 ## 2️⃣ C++ System Design
 
 Core concepts of C++ system architecture
+
 - [ ] memory ownership design
 - [ ] resource lifetime design
 - [ ] API design principles
