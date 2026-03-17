@@ -20,18 +20,79 @@
 
 ## 4. Key Rules
 
+1. **Access does not imply ownership**.
+2. **Every resource must have a clearly defined lifetime owner**.
+3. **Destruction** responsibility **follows ownership**.
+4. **Ownership transfer** must be **explicit**.
+5. **Shared ownership** must be **intentional**.
+6. **Non-owning references** are valid only while **the owner keeps the resource alive**.
+
 ## 5. Examples
 
-## 6. Common Misunderstandings
+1. `Access does not imply ownership`
 
-## 7. In Practice
+```cpp
+auto p = std::make_unique<Foo>();
+Foo* raw = p.get();
+```
 
-## 8. Pitfalls / Anti-patterns
+- key point: `raw` can access the object, but `p` owns it.
 
-## 9. Related Concepts
+2. `Every resource must have a clearly defined lifetime owner`
 
-## 10. Explain In My Own Words
+```cpp
+auto p = std::make_unique<Foo>();
+```
 
-## 11. Check Questions
+- key point: `p` is the clearly defined owner of the resource.
 
-## 12. One-line Summary
+3. `Destruction responsibility follows ownership`
+
+```cpp
+void use(Foo* foo); // non-owning
+```
+
+- key point: `use` may access `foo`, but it must not destroy it.
+
+4. `Ownership transfer must be explicit`
+
+```cpp
+void take(std::unique_ptr<Foo> foo);
+take(std::move(p));
+```
+
+- key point: Ownership moves explicitly through `std::move`.
+
+5. `Shared ownership must be intentional`
+
+```cpp
+auto a = std::make_shared<Foo>();
+auto b = a;
+```
+
+- key point: Copying `shared_ptr` creates another owner, not just another observer.
+
+6. `Non-owning references are valid only while the owner keeps the resource alive`
+
+```cpp
+Foo* raw;
+{
+  auto p = std::make_unique<Foo>();
+  raw = p.get();
+}
+// raw is now dangling
+```
+
+- key point: A borrowed pointer is valid only while the owner is alive.
+
+
+## 6. Related Concepts
+
+- `RAII`: ownership is often implemented through **object lifetime**, so **resource release happens automatically** when the **owner goes out of scope**.
+- `Object lifetime`: ownership semantics exists to make a resource's **lifetime explicit and manageable**.
+- `Smart pointers`: `std::unique_ptr`, `std::shared_ptr`, and `std::weak_ptr` are **standard C++ tools** for expressing **different ownership models**.
+- `Move semantics`: **unique ownership** is commonly **transferred through move operations** rather than copy operations.
+- `Borrowing / non-owning references`: raw pointers, references, and views often represent **access without lifetime responsibility**.
+- `Resource management`: ownership semantics is part of the broader problem of managing **memory, files, locks, sockets, and other resources safely**.
+- `API design`: **function parameters and return types** often communicate whether a resource is **borrowed, transferred, or shared**.
+- `Exception safety`: **clear ownership rules** make **cleanup and failure handling** much more predictable.
