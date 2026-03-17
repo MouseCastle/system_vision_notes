@@ -10,7 +10,7 @@ C++ language fundamentals
 - [ ] rule of 3 / 5 / 0
 - [ ] RAII
 - [ ] smart pointers (unique_ptr / shared_ptr / weak_ptr)
-- [x] ownership semantics
+- [x] [ownership semantics](./cpp/ownership_semantics.md)
 - [ ] object lifetime
 - [ ] stack vs heap allocation
 - [ ] placement new
