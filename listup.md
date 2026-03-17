@@ -11,7 +11,7 @@ C++ language fundamentals
 - [ ] RAII
 - [ ] smart pointers (unique_ptr / shared_ptr / weak_ptr)
 - [x] [ownership semantics](./cpp/ownership_semantics.md)
-- [ ] object lifetime
+- [x] [object lifetime](./cpp/object_lifetime.md)
 - [ ] stack vs heap allocation
 - [ ] placement new
 - [ ] alignment
@@ -208,6 +208,7 @@ Multi-thread / Concurrency
 - [ ] peer to peer copy
 
 ## 7️⃣ GPU Performance Engineering
+
 - [ ] Nsight Systems
 - [ ] Nsight Compute
 - [ ] roofline model
@@ -309,6 +310,7 @@ Multi-thread / Concurrency
 - [ ] retry strategies
 
 ## 1️⃣1️⃣ Networking / Streaming
+
 - [ ] TCP vs UDP
 - [ ] RTP
 - [ ] RTSP
@@ -323,6 +325,7 @@ Multi-thread / Concurrency
 - [ ] streaming buffers
 
 ## 1️⃣2️⃣ Debugging / Profiling
+
 - [ ] gdb
 - [ ] lldb
 - [ ] valgrind
@@ -336,6 +339,7 @@ Multi-thread / Concurrency
 - [ ] Nsight tools
 
 ## 1️⃣3️⃣ Software Engineering Practices
+
 - [ ] code review practices
 - [ ] testing strategies
 - [ ] unit tests
