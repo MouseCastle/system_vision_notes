@@ -8,7 +8,7 @@ C++ language fundamentals
 - [ ] move semantics
 - [ ] copy vs move constructor
 - [ ] rule of 3 / 5 / 0
-- [ ] RAII
+- [x] RAII
 - [ ] smart pointers (unique_ptr / shared_ptr / weak_ptr)
 - [x] [ownership semantics](./cpp/ownership_semantics.md)
 - [x] [object lifetime](./cpp/object_lifetime.md)
